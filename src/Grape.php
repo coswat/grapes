@@ -21,4 +21,9 @@ class Grape
       $raw = date('Y-m-d H:i:s',self::$time);
       return $raw;
     }
+    public static function toYear()
+    {
+      $year = date('Y',self::$time);
+      return $year;
+    }
 }
