@@ -42,14 +42,33 @@ class Grape extends BaseController
     {
        return self::findTimeAgo((string)self::$time);
     }
-    public static function nextDay()
+    public static function nextDay(bool $unix = false): string|int|float
     {
-       $date = date('Y-m-d', strtotime("+1 day"));
+       $date = date('Y-m-d H:i:s', strtotime("+1 day"));
+       if($unix)
+       {
+         return strtotime($date);
+       }
        return $date;
     }
-    public static function nextWeek()
+    public static function nextWeek(bool $unix = false): string|int|float
     {
-       $date = date('Y-m-d', strtotime("+1 week"));
+       $date = date('Y-m-d H:i:s', strtotime("+1 week"));
+       if($unix)
+       {
+         return strtotime($date);
+       }
+       
+       return $date;
+    }
+    public static function nextMonth(bool $unix = false): string|int|float
+    {
+       $date = date('Y-m-d H:i:s', strtotime("+1 month"));
+       if($unix)
+       {
+         return strtotime($date);
+         
+       }
        return $date;
     }
 }
