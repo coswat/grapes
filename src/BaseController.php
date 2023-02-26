@@ -4,7 +4,7 @@ namespace Coswat\Grapes;
 
 class BaseController
 {
-    public static function findTimeAgo(string $timestamp)
+    public static function findTimeAgo(string $timestamp): string
     {
         $time_diff = time() - $timestamp;
 

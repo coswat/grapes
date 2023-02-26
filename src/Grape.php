@@ -13,12 +13,12 @@ class Grape extends BaseController
        return new static;
     }
     
-    public static function toTime(): int|float
+    public static function toTime(): int|float|string
     {
        $time = date('H:i:s',self::$time);
        return $time;
     }
-    public static function toRaw(): int|float
+    public static function toRaw(): int|float|string
     {
       $raw = date('Y-m-d H:i:s',self::$time);
       return $raw;
@@ -26,7 +26,7 @@ class Grape extends BaseController
     public static function toYear(): int
     {
       $year = date('Y',self::$time);
-      return $year;
+      return (int)$year;
     }
     public static function toMonth(): string
     {
@@ -64,6 +64,36 @@ class Grape extends BaseController
     public static function nextMonth(bool $unix = false): string|int|float
     {
        $date = date('Y-m-d H:i:s', strtotime("+1 month"));
+       if($unix)
+       {
+         return strtotime($date);
+         
+       }
+       return $date;
+    }
+    public static function addDays(int $day, bool $unix = false): string|int|float
+    {
+       $date = date('Y-m-d H:i:s', strtotime("+{$day} day"));
+       if($unix)
+       {
+         return strtotime($date);
+         
+       }
+       return $date;
+    }
+    public static function addWeeks(int $week ,bool $unix = false): string|int|float
+    {
+       $date = date('Y-m-d H:i:s', strtotime("+{$week} week"));
+       if($unix)
+       {
+         return strtotime($date);
+       }
+       
+       return $date;
+    }
+    public static function addMonths(int $month ,bool $unix = false): string|int|float
+    {
+       $date = date('Y-m-d H:i:s', strtotime("+{$month} month"));
        if($unix)
        {
          return strtotime($date);
