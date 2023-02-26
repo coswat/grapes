@@ -28,9 +28,14 @@ class Grape extends BaseController
       $year = date('Y',self::$time);
       return $year;
     }
-    public static function toMonth()
+    public static function toMonth(): string
     {
       $month = date('F',self::$time);
       return $month;
+    }
+    public static function toDay()
+    {
+       $day = date('l',self::$time);
+       return $day;
     }
 }
