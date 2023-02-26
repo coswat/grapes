@@ -1,0 +1,17 @@
+{
+    "name": "coswat/grapes",
+    "description": "powerfull package for time",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Coswat\\Grapes\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "coswat"
+        }
+    ],
+    "require": {}
+}
