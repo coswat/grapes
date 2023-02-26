@@ -33,13 +33,18 @@ class Grape extends BaseController
       $month = date('F',self::$time);
       return $month;
     }
-    public static function toDay()
+    public static function toDay(): string
     {
        $day = date('l',self::$time);
        return $day;
     }
-    public static function timeAgo()
+    public static function timeAgo(): string
     {
        return self::findTimeAgo((string)self::$time);
+    }
+    public static function nextDay()
+    {
+       $date = date('Y-m-d', strtotime("+1 day"));
+       return $date;
     }
 }
