@@ -47,4 +47,9 @@ class Grape extends BaseController
        $date = date('Y-m-d', strtotime("+1 day"));
        return $date;
     }
+    public static function nextWeek()
+    {
+       $date = date('Y-m-d', strtotime("+1 week"));
+       return $date;
+    }
 }
