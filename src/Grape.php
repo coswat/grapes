@@ -38,4 +38,8 @@ class Grape extends BaseController
        $day = date('l',self::$time);
        return $day;
     }
+    public static function timeAgo()
+    {
+       return self::findTimeAgo((string)self::$time);
+    }
 }
