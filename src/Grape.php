@@ -1,7 +1,9 @@
 <?php
+declare(strict_types=1);
 namespace Coswat\Grapes;
+use Coswat\Grapes\BaseController;
 
-class Grape 
+class Grape extends BaseController
 {
     public static $time;
     
@@ -11,19 +13,24 @@ class Grape
        return new static;
     }
     
-    public static function toTime()
+    public static function toTime(): int|float
     {
        $time = date('H:i:s',self::$time);
        return $time;
     }
-    public static function toRaw()
+    public static function toRaw(): int|float
     {
       $raw = date('Y-m-d H:i:s',self::$time);
       return $raw;
     }
-    public static function toYear()
+    public static function toYear(): int
     {
       $year = date('Y',self::$time);
       return $year;
+    }
+    public static function toMonth()
+    {
+      $month = date('F',self::$time);
+      return $month;
     }
 }
