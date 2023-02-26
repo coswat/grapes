@@ -7,7 +7,7 @@ class Grape extends BaseController
 {
     public static $time;
     
-    public static function Time(int $time): self
+    public static function time(int $time): self
     {
        self::$time = $time;
        return new static;
@@ -100,5 +100,9 @@ class Grape extends BaseController
          
        }
        return $date;
+    }
+    public static function getTimezone(string $ip): string
+    {
+       return self::timezoneInfo($ip);
     }
 }

@@ -30,4 +30,15 @@ class BaseController
             return $year . " years ago";
         }
     }
+    public static function timezoneInfo(string $ip)
+    {
+        $url = "http://ip-api.com/json/{$ip}";
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $data = curl_exec($curl);
+        curl_close($curl);
+        $data = json_decode($data);
+        return $data->timezone;
+    }
 }
