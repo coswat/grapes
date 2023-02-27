@@ -3,7 +3,7 @@
     "description": "php grapes is a powerful and light weight package to play with time and date , easy to use",
     "type": "library",
     "license": "MIT",
-    "minimum-stability: "dev",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Coswat\\Grapes\\": "src/"
