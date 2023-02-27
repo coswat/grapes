@@ -5,7 +5,7 @@
     "keywords": [
         "date",
         "time",
-        "DateTime",
+        "DateTime"
           ],
     "license": "MIT",
     "autoload": {
