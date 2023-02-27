@@ -2,6 +2,11 @@
     "name": "coswat/grapes",
     "description": "php grapes is a powerful and light weight package to play with time and date , easy to use",
     "type": "library",
+    "keywords": [
+        "date",
+        "time",
+        "DateTime",
+          ],
     "license": "MIT",
     "autoload": {
         "psr-4": {
