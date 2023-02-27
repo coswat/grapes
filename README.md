@@ -1,6 +1,12 @@
 ## PHP Grapes
 php grapes is a powerful and light weight package to play with time and date , easy to use
 
+## installation
+```
+composer require coswat/grapes
+
+```
+
 ## usage
 ```php
 use Coswat\Grapes\Grape;
