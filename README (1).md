@@ -44,7 +44,7 @@ Grape::time($time)->addWeeks(1);
 Grape::time($time)->addMonths(3);
 ```
 
-## Additional feature
+## Additional features
 
 ```php
 $ip = '8.8.8.8'; //ip address 
@@ -58,4 +58,8 @@ $start_time = microtime(true);
 $end_time = microtime(true);
 
 Grape::getMs($start_time,$end_time); //returns 0.42 ms
+
 ```
+<p align="center"><a href="https://github.com/coswat/grapes#coswat"><img src="http://randojs.com/images/barsSmallTransparentBackground.gif" alt="Animated footer bars" width="100%"/></a></p>
+<br/>
+<p align="center"><a href="https://github.com/coswat/grapes#"><img src="http://randojs.com/images/backToTopButtonTransparentBackground.png" alt="Back to top" height="29"/></a></p>

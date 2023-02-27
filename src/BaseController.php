@@ -12,7 +12,7 @@ class BaseController
             return $time_diff . " seconds ago";
         } elseif ($time_diff < 3600) {
             $mins = floor($time_diff / 60);
-            return $mins . " minutes ago";
+            return $mins . " mins ago";
         } elseif ($time_diff < 86400) {
             $hours = floor($time_diff / 3600);
             return $hours . " hours ago";
