@@ -102,8 +102,10 @@ class Grape extends BaseController
     {
         return self::timezoneInfo($ip);
     }
-    public static function getMs(int|float $start_time, int|float $end_time)
-    {
+    public static function getMs(
+        int|float $start_time,
+        int|float $end_time
+    ): string {
         $execution_time = $end_time - $start_time;
         $execution_time_ms = round($execution_time * 1000, 2);
 

@@ -52,7 +52,9 @@ $ip = '8.8.8.8'; //ip address
 Grape::getTimezone($ip); // returns Asia/Kolkata
 
 $start_time = microtime(true);
+
  // code to run 
+ 
 $end_time = microtime(true);
 
 Grape::getMs($start_time,$end_time); //returns 0.42 ms
