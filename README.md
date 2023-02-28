@@ -65,6 +65,17 @@ $end_time = microtime(true);
 Grape::getMs($start_time,$end_time); //returns 0.42 ms
 
 ```
+## whats new in latest version?
+
+```php
+
+echo Grape::timeDiff(time(),1677625494);
+
+/* will return time difference dynamically
+(second,minutes,hours,days) */
+
+```
+
 <p align="center"><a href="https://github.com/coswat/grapes#coswat"><img src="http://randojs.com/images/barsSmallTransparentBackground.gif" alt="Animated footer bars" width="100%"/></a></p>
 <br/>
 <p align="center"><a href="https://github.com/coswat/grapes#"><img src="http://randojs.com/images/backToTopButtonTransparentBackground.png" alt="Back to top" height="29"/></a></p>
