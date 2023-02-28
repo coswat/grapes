@@ -9,32 +9,32 @@ class BaseController
         $time_diff = time() - $timestamp;
 
         switch ($time_diff) {
-            case ($time_diff < 60):
-                return $time_diff . " seconds ago";
+            case $time_diff < 60:
+                return "{$time_diff} seconds ago";
                 break;
-            case ($time_diff < 3600):
+            case $time_diff < 3600:
                 $mins = floor($time_diff / 60);
-                return $mins . " mins ago";
+                return "{$mins} mins ago";
                 break;
-            case ($time_diff < 86400):
+            case $time_diff < 86400:
                 $hours = floor($time_diff / 3600);
-                return $hours . " hours ago";
+                return "{$hours} hours ago";
                 break;
-            case ($time_diff < 604800):
+            case $time_diff < 604800:
                 $days = floor($time_diff / 86400);
-                return $days . " days ago";
+                return "{$days} days ago";
                 break;
-            case ($time_diff < 2592000):
+            case $time_diff < 2592000:
                 $weeks = floor($time_diff / 604800);
-                return $weeks . " weeks ago";
+                return "{$weeks} weeks ago";
                 break;
-            case ($time_diff < 31536000):
+            case $time_diff < 31536000:
                 $months = floor($time_diff / 2592000);
-                return $months . " months ago";
+                return "{$months} months ago";
                 break;
             default:
                 $year = floor($time_diff / 31536000);
-                return $year . " years ago";
+                return "{$year} years ago";
                 break;
         }
     }
@@ -48,5 +48,30 @@ class BaseController
         curl_close($curl);
         $data = json_decode($data);
         return $data->timezone;
+    }
+    public static function getTimeDifference(
+        int $firstTime,
+        int $secondTime
+    ): string {
+        $timeDiff = $firstTime - $secondTime;
+
+        if ($timeDiff < 60) {
+            return "{$timeDiff} seconds";
+        } elseif ($timeDiff >= 60 && $timeDiff < 3599) {
+            $minutes = floor($timeDiff / 60);
+            return "{$minutes} minute";
+        } elseif ($timeDiff >= 3600 && $timeDiff < 86399) {
+            $hours = $timeDiff / 3600;
+            $getAccurate = explode(".", $hours);
+            $getAfter = substr($getAccurate[1], 0, 2);
+            $hours = "{$getAccurate[0]}.{$getAfter}";
+            return "{$hours} hour";
+        } elseif ($timeDiff >= 86400) {
+            $days = $timeDiff / 86400;
+            $getAccurate = explode(".", $days);
+            $getAfter = substr($getAccurate[1], 0, 2);
+            $days = "{$getAccurate[0]}.{$getAfter}";
+            return "{$days} day";
+        }
     }
 }

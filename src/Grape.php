@@ -109,6 +109,13 @@ class Grape extends BaseController
         $execution_time = $end_time - $start_time;
         $execution_time_ms = round($execution_time * 1000, 2);
 
-        return $execution_time_ms . " ms";
+        return "{$execution_time_ms} ms";
+    }
+    /*
+    updated in 1.0.1
+    */
+    public static function timeDiff(int $firstTime, int $secondTime): string
+    {
+        return self::getTimeDifference($firstTime, $secondTime);
     }
 }
