@@ -65,7 +65,7 @@ $end_time = microtime(true);
 Grape::getMs($start_time,$end_time); //returns 0.42 ms
 
 ```
-## whats new in latest version?
+### whats new in latest version?
 
 ```php
 
