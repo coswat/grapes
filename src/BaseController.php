@@ -38,7 +38,7 @@ class BaseController
                 break;
         }
     }
-    public static function timezoneInfo(string $ip)
+    public static function timezoneInfo(string $ip): ?string
     {
         $url = "http://ip-api.com/json/{$ip}";
         $curl = curl_init();
@@ -47,7 +47,11 @@ class BaseController
         $data = curl_exec($curl);
         curl_close($curl);
         $data = json_decode($data);
-        return $data->timezone;
+        if(!$data->timezone)
+        {
+          return null;
+        }
+         return $data->timezone;
     }
     public static function getTimeDifference(
         int $firstTime,
@@ -65,14 +69,14 @@ class BaseController
                 break;
             case $timeDiff >= 3600 && $timeDiff < 86400:
                 $hours = $timeDiff / 3600;
-                $getAccurate = explode(".", $hours);
+                $getAccurate = explode('.', $hours);
                 $getAfter = substr($getAccurate[1], 0, 2);
                 $hours = "{$getAccurate[0]}.{$getAfter}";
                 return "{$hours} hour";
                 break;
             default:
                 $days = $timeDiff / 86400;
-                $getAccurate = explode(".", $days);
+                $getAccurate = explode('.', $days);
                 $getAfter = substr($getAccurate[1], 0, 2);
                 $days = "{$getAccurate[0]}.{$getAfter}";
                 return "{$days} day";
