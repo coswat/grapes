@@ -69,7 +69,7 @@ Grape::getMs($start_time,$end_time); //returns 0.42 ms
 
 ```php
 
-echo Grape::timeDiff(time(),1677625494);
+Grape::timeDiff(time(),1677625494);
 
 /* will return time difference dynamically
 (second,minutes,hours,days) */
