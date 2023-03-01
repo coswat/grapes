@@ -8,7 +8,7 @@ class BaseController
     {
         $time_diff = time() - $timestamp;
 
-        switch ($time_diff) {
+        switch (true) {
             case $time_diff < 60:
                 return "{$time_diff} seconds ago";
                 break;
@@ -55,23 +55,28 @@ class BaseController
     ): string {
         $timeDiff = $firstTime - $secondTime;
 
-        if ($timeDiff < 60) {
-            return "{$timeDiff} seconds";
-        } elseif ($timeDiff >= 60 && $timeDiff < 3599) {
-            $minutes = floor($timeDiff / 60);
-            return "{$minutes} minute";
-        } elseif ($timeDiff >= 3600 && $timeDiff < 86399) {
-            $hours = $timeDiff / 3600;
-            $getAccurate = explode(".", $hours);
-            $getAfter = substr($getAccurate[1], 0, 2);
-            $hours = "{$getAccurate[0]}.{$getAfter}";
-            return "{$hours} hour";
-        } elseif ($timeDiff >= 86400) {
-            $days = $timeDiff / 86400;
-            $getAccurate = explode(".", $days);
-            $getAfter = substr($getAccurate[1], 0, 2);
-            $days = "{$getAccurate[0]}.{$getAfter}";
-            return "{$days} day";
+        switch (true) {
+            case $timeDiff < 60:
+                return "{$timeDiff} seconds";
+                break;
+            case $timeDiff >= 60 && $timeDiff < 3600:
+                $minutes = floor($timeDiff / 60);
+                return "{$minutes} minute";
+                break;
+            case $timeDiff >= 3600 && $timeDiff < 86400:
+                $hours = $timeDiff / 3600;
+                $getAccurate = explode(".", $hours);
+                $getAfter = substr($getAccurate[1], 0, 2);
+                $hours = "{$getAccurate[0]}.{$getAfter}";
+                return "{$hours} hour";
+                break;
+            default:
+                $days = $timeDiff / 86400;
+                $getAccurate = explode(".", $days);
+                $getAfter = substr($getAccurate[1], 0, 2);
+                $days = "{$getAccurate[0]}.{$getAfter}";
+                return "{$days} day";
+                break;
         }
     }
 }
