@@ -34,4 +34,17 @@ class GrapeTest extends TestCase
         $expected = "America/New_York";
         $this->assertEquals($timeZone, $expected);
     }
+    public function test_toTime_function(): void 
+    {
+      $time = Grape::time(1687350065)->toTime();
+      $expected = '12:21:05';
+      $this->assertEquals($time, $expected);
+    }
+    public function test_toRaw_function(): void 
+    {
+      $time = Grape::time(1687350065)->toRaw();
+      $expected = '2023-06-21 12:21:05';
+      $this->assertEquals($time, $expected);
+    }
+
 }
