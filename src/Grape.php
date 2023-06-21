@@ -10,7 +10,7 @@ declare(strict_types=1);
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
- 
+
 namespace Coswat\Grapes;
 
 use Coswat\Grapes\BaseController;
@@ -107,7 +107,8 @@ class Grape extends BaseController
      */
     public static function nextDay(bool $unix = false): string|int|float
     {
-        $date = date("Y-m-d H:i:s", strtotime("+1 day"));
+        $timestamp = strtotime("+1 day", self::$time);
+        $date = date("Y-m-d H:i:s", $timestamp);
         if ($unix) {
             return strtotime($date);
         }
@@ -122,7 +123,8 @@ class Grape extends BaseController
      */
     public static function nextWeek(bool $unix = false): string|int|float
     {
-        $date = date("Y-m-d H:i:s", strtotime("+1 week"));
+        $timestamp = strtotime("+1 week", self::$time);
+        $date = date("Y-m-d H:i:s", $timestamp);
         if ($unix) {
             return strtotime($date);
         }
@@ -137,7 +139,8 @@ class Grape extends BaseController
      */
     public static function nextMonth(bool $unix = false): string|int|float
     {
-        $date = date("Y-m-d H:i:s", strtotime("+1 month"));
+        $timestamp = strtotime("+1 month", self::$time);
+        $date = date("Y-m-d H:i:s", $timestamp);
         if ($unix) {
             return strtotime($date);
         }
@@ -153,7 +156,8 @@ class Grape extends BaseController
      */
     public static function addDays(int $day, bool $unix = false): string|int|float
     {
-        $date = date("Y-m-d H:i:s", strtotime("+{$day} day"));
+        $timestamp = strtotime("+{$day} day", self::$time);
+        $date = date("Y-m-d H:i:s", $timestamp);
         if ($unix) {
             return strtotime($date);
         }
@@ -169,7 +173,8 @@ class Grape extends BaseController
      */
     public static function addWeeks(int $week, bool $unix = false): string|int|float
     {
-        $date = date("Y-m-d H:i:s", strtotime("+{$week} week"));
+        $timestamp = strtotime("+{$week} week", self::$time);
+        $date = date("Y-m-d H:i:s", $timestamp);
         if ($unix) {
             return strtotime($date);
         }
@@ -185,7 +190,8 @@ class Grape extends BaseController
      */
     public static function addMonths(int $month, bool $unix = false): string|int|float
     {
-        $date = date("Y-m-d H:i:s", strtotime("+{$month} month"));
+        $timestamp = strtotime("+{$month} month", self::$time);
+        $date = date("Y-m-d H:i:s", $timestamp);
         if ($unix) {
             return strtotime($date);
         }
