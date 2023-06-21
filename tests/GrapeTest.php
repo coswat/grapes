@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Coswat\Grapes\Test;
+
 use PHPUnit\Framework\TestCase;
 use Coswat\Grapes\Grape;
 
@@ -9,19 +11,19 @@ class GrapeTest extends TestCase
 {
     public function test_toYear_function(): void
     {
-        $year = Grape::time(time())->toYear();
+        $year = Grape::time(1687350065)->toYear();
         $expected = 2023;
         $this->assertEquals($year, $expected);
     }
     public function test_toMonth_function(): void
     {
-        $month = Grape::time(time())->toMonth();
-        $expected = "March";
+        $month = Grape::time(1687350065)->toMonth();
+        $expected = "June";
         $this->assertEquals($month, $expected);
     }
     public function test_toDay_function(): void
     {
-        $day = Grape::time(time())->toDay();
+        $day = Grape::time(1687350065)->toDay();
         $expected = "Wednesday";
         $this->assertEquals($day, $expected);
     }
